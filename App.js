@@ -12,9 +12,11 @@ export default function App() {
   );
 }
 
+//Все View элементы по умолчанию являются display: flex
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1, //Вся доступная высота экрана
     backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center',
