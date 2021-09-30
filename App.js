@@ -10,12 +10,12 @@ const styles = StyleSheet.create({
   }
 });
 
+//TODO: App!
 
 export default function App() {
   return (
     <View >
       <Navbar title="Todo app" />
-
       <View style={styles.container}>
         <AddTodo />
       </View>
