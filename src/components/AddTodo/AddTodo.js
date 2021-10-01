@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TextInput, Button } from 'react-native';
+import { View, StyleSheet, TextInput, Button, Alert } from 'react-native';
 
 const styles = StyleSheet.create({
     block: {
@@ -30,7 +30,7 @@ const AddTodo = ({ onSubmit }) => {
             onSubmit(value)
             setValue('  ')
         } else {
-            //error
+            Alert.alert('Ошибка. Пустое текстовое поле')
         }
     }
 
