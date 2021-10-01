@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 
     },
     textInput: {
-        width: '65%',
+        width: '75%',
         borderStyle: 'solid',
         borderWidth: 2,
         borderColor: '#3949ab',
@@ -36,7 +36,14 @@ const AddTodo = ({ onSubmit }) => {
 
     return (
         <View style={styles.block}>
-            <TextInput style={styles.textInput} value={value} placeholder="Введите текст..." onChangeText={text => setValue(text)} />
+            <TextInput
+                keyboardType='default'
+                style={styles.textInput}
+                value={value}
+                placeholder="Введите текст..."
+                onChangeText={text => setValue(text)}
+                autoCorrect
+            />
             <Button style={styles.button} title='Добавить' onPress={pressHandler} />
         </View>
     );

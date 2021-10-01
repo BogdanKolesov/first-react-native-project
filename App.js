@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import Navbar from './src/components/Navbar';
 import AddTodo from './src/components/AddTodo';
 import Todo from './src/components/Todo';
@@ -8,8 +8,12 @@ import Todo from './src/components/Todo';
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+    marginHorizontal: '8%'
+  },
+  list: {
+    width: '100%',
+  },
 });
 
 //TODO: App!
@@ -45,12 +49,15 @@ export default function App() {
       <Navbar title="Kolesov's to-do test App" />
       <View style={styles.container}>
         <AddTodo onSubmit={addTodo} />
-        <View>
 
-        </View>
-        {todos.map(todo => {
-          return <Todo todo={todo} key={todo.id} />
-        })}
+        <FlatList
+          style={styles.list}
+          keyExtractor={item => item.id.toString()}
+          data={todos}
+          renderItem={({ item }) => (
+            <Todo todo={item} />
+          )}
+        />
       </View>
     </View>
   );

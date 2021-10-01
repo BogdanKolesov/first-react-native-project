@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     todo: {
-        width: '80%',
+        width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
         padding: 15,
@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
         borderColor: '#eee',
         borderRadius: 5,
         marginTop: 10
+
     }
 })
 
