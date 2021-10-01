@@ -33,7 +33,7 @@ export default function App() {
     // })
 
     setTodos(prev => [{
-      id: Date.now().toString,
+      id: Date.now().toString(),
       title
     },
     ...prev

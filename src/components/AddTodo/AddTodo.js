@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Button } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -23,14 +23,20 @@ const styles = StyleSheet.create({
 })
 
 const AddTodo = ({ onSubmit }) => {
+    const [value, setValue] = useState('')
 
     const pressHandler = () => {
-        onSubmit('testTodo')
+        if (value.trim()) {
+            onSubmit(value)
+            setValue('  ')
+        } else {
+            //error
+        }
     }
 
     return (
         <View style={styles.block}>
-            <TextInput style={styles.textInput} />
+            <TextInput style={styles.textInput} value={value} placeholder="Введите текст..." onChangeText={text => setValue(text)} />
             <Button style={styles.button} title='Добавить' onPress={pressHandler} />
         </View>
     );
