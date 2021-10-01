@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Navbar from './src/components/Navbar';
 import AddTodo from './src/components/AddTodo';
+import Todo from './src/components/Todo';
 
 const styles = StyleSheet.create({
   container: {
-
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
@@ -40,9 +42,15 @@ export default function App() {
 
   return (
     <View >
-      <Navbar title="Todo app" />
+      <Navbar title="Kolesov's to-do test App" />
       <View style={styles.container}>
         <AddTodo onSubmit={addTodo} />
+        <View>
+
+        </View>
+        {todos.map(todo => {
+          return <Todo todo={todo} key={todo.id} />
+        })}
       </View>
     </View>
   );
