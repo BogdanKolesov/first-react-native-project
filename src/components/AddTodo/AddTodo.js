@@ -21,11 +21,16 @@ const styles = StyleSheet.create({
     }
 })
 
-const AddTodo = () => {
+const AddTodo = ({ onSubmit }) => {
+
+    const pressHandler = () => {
+        onSubmit('testTodo')
+    }
+
     return (
         <View style={styles.block}>
             <TextInput style={styles.textInput} />
-            <Button style={styles.button} title='Добавить' />
+            <Button style={styles.button} title='Добавить' onPress={pressHandler} />
         </View>
     );
 };
