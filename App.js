@@ -9,14 +9,17 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: '8%'
+    marginHorizontal: '8%',
   },
   list: {
     width: '100%',
+
   },
 });
 
 //TODO: App!
+//Todo: Screens
+//Todo: Firebase
 
 export default function App() {
 
@@ -58,6 +61,7 @@ export default function App() {
           style={styles.list}
           keyExtractor={item => item.id.toString()}
           data={todos}
+          scrollEnabled={true}
           renderItem={({ item }) => (
             <Todo todo={item} onRemove={removeTodo} />
           )}

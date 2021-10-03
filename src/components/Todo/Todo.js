@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
         borderColor: '#eee',
         borderRadius: 5,
         marginTop: 10
-
     }
 })
 
@@ -25,7 +24,7 @@ const Todo = ({ todo, onRemove }) => {
     return (
         <TouchableOpacity
             activeOpacity={0.5}
-            onPress={() => console.log('Pressed', todo.id)}
+            // onPress={() => console.log('Pressed', todo.id)}
             onLongPress={longPressHandler}
         >
             <View style={styles.todo}>
