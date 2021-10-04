@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 
 export default function App() {
 
-  const [todoId, setTodoId] = useState(null);
+  const [todoId, setTodoId] = useState('2');
 
   const [todos, setTodos] = useState([
     { id: '1', title: 'Выучить RN' },
