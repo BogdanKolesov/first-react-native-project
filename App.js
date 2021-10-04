@@ -1,9 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import Navbar from './src/components/Navbar';
-import AddTodo from './src/components/AddTodo';
-import Todo from './src/components/Todo';
+import MainScreen from './src/components/Views/MainScreen';
+import TodoScreen from './src/components/Views/TodoScreen';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -13,31 +13,18 @@ const styles = StyleSheet.create({
   },
   list: {
     width: '100%',
-
   },
 });
 
-//TODO: App!
-//Todo: Screens
-//Todo: Firebase
 
 export default function App() {
+
+  const [todoId, setTodoId] = useState(null);
 
   const [todos, setTodos] = useState([])
 
   const addTodo = (title) => {
-    // const newTodo = {
-    //   id: Date.now().toString,
-    //   title: title
-    // }
-    // setTodos(todos.concat([newTodo])) // no
 
-    // setTodos((prevTodos) => { //no to
-    //   return [
-    //     ...prevTodos,
-    //     newTodo
-    //   ]
-    // })
 
     setTodos(prev => [{
       id: Date.now().toString(),
@@ -51,21 +38,18 @@ export default function App() {
     setTodos(prev => prev.filter(todo => todo.id !== id))
   }
 
+  let content = (
+    <MainScreen todos={todos} addTodo={addTodo} removeTodo={removeTodo} />
+  )
+
+  if (todoId) {
+    content = <TodoScreen />
+  }
   return (
     <View >
       <Navbar title="Kolesov's to-do test App" />
       <View style={styles.container}>
-        <AddTodo onSubmit={addTodo} />
-
-        <FlatList
-          style={styles.list}
-          keyExtractor={item => item.id.toString()}
-          data={todos}
-          scrollEnabled={true}
-          renderItem={({ item }) => (
-            <Todo todo={item} onRemove={removeTodo} />
-          )}
-        />
+        {content}
       </View>
     </View>
   );
