@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Button, Alert } from 'react-native';
+import THEME from '../../theme';
 
 const styles = StyleSheet.create({
     block: {
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
         width: '75%',
         borderStyle: 'solid',
         borderWidth: 2,
-        borderColor: '#3949ab',
+        borderColor: THEME.MAIN_COLOR,
         marginRight: 5,
         padding: 2
     }
