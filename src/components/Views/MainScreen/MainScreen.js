@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 
 })
 
-const MainScreen = ({ addTodo, todos, removeTodo }) => {
+const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
     return (
         <View>
             <AddTodo onSubmit={addTodo} />
@@ -18,7 +18,7 @@ const MainScreen = ({ addTodo, todos, removeTodo }) => {
                 data={todos}
                 scrollEnabled={true}
                 renderItem={({ item }) => (
-                    <Todo todo={item} onRemove={removeTodo} />
+                    <Todo todo={item} onRemove={removeTodo} onOpen={openTodo} />
                 )}
             />
         </View>

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
 
 
-const Todo = ({ todo, onRemove }) => {
+const Todo = ({ todo, onRemove, onOpen }) => {
     const longPressHandler = () => {
         onRemove(todo.id)
     }
@@ -24,7 +24,7 @@ const Todo = ({ todo, onRemove }) => {
     return (
         <TouchableOpacity
             activeOpacity={0.5}
-            // onPress={() => console.log('Pressed', todo.id)}
+            onPress={() => onOpen(todo.id)}
             onLongPress={longPressHandler}
         >
             <View style={styles.todo}>
