@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     }
 })
 
-const TodoScreen = ({ goBack, todo }) => {
+const TodoScreen = ({ goBack, todo, onRemove }) => {
     return (
         <View style={styles.screen}>
             <AppCard style={styles.card}>
@@ -37,7 +37,7 @@ const TodoScreen = ({ goBack, todo }) => {
                     <Button title="Назад" color={THEME.GREY_COLOR} onPress={goBack} />
                 </View>
                 <View style={styles.button}>
-                    <Button title="Удалить" color={THEME.DANGER_COLOR} onPress={() => console.log('To remove')} />
+                    <Button title="Удалить" color={THEME.DANGER_COLOR} onPress={() => onRemove(todo.id)} />
                 </View>
             </View>
         </View>
