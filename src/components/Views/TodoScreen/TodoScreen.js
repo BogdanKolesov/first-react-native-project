@@ -23,14 +23,18 @@ const styles = StyleSheet.create({
     }
 })
 
-const TodoScreen = ({ goBack, todo, onRemove }) => {
+const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
 
     const [modal, setModal] = useState(false);
 
+    const saveHandler = title => {
+        onSave(todo.id, title)
+        setModal(false)
+    }
 
     return (
         <View style={styles.screen}>
-            <EditModal visible={modal} onCancel={() => setModal(false)} />
+            <EditModal visible={modal} onCancel={() => setModal(false)} value={todo.title} onSave={saveHandler} />
             <AppCard style={styles.card}>
                 <Text style={styles.title}>
                     {todo.title}
