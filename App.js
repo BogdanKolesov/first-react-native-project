@@ -76,5 +76,4 @@ export default function App() {
   );
 }
 
-//Все View элементы по умолчанию являются display: flex
 
