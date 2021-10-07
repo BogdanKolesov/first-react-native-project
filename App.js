@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as Font from 'expo-font'
-import { StyleSheet, Text, View, Alert } from 'react-native';
+import { StyleSheet, View, Alert } from 'react-native';
 import AppLoading from 'expo-app-loading';
 
 import Navbar from './src/components/Navbar';

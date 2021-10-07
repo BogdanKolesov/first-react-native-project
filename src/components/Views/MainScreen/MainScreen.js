@@ -3,6 +3,7 @@ import { StyleSheet, View, FlatList, Image } from 'react-native';
 import AddTodo from '../../AddTodo';
 import Todo from '../../Todo';
 
+
 const styles = StyleSheet.create({
     imgWrap: {
         alignItems: 'center',
