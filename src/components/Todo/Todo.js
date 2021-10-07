@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
         borderColor: '#eee',
         borderRadius: 5,
         marginTop: 10
+    },
+    title: {
+        fontFamily: 'roboto-bold'
     }
 })
 
@@ -28,7 +31,7 @@ const Todo = ({ todo, onRemove, onOpen }) => {
             onLongPress={longPressHandler}
         >
             <View style={styles.todo}>
-                <Text>
+                <Text style={styles.title}>
                     {todo.title}
                 </Text>
             </View>

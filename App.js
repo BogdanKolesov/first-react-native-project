@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import * as Font from 'expo-font'
 import { StyleSheet, Text, View, Alert } from 'react-native';
+import AppLoading from 'expo-app-loading';
+
 import Navbar from './src/components/Navbar';
 import MainScreen from './src/components/Views/MainScreen';
 import TodoScreen from './src/components/Views/TodoScreen';
@@ -29,10 +31,21 @@ const styles = StyleSheet.create({
 
 export default function App() {
 
+  const [isReady, setIsReady] = useState(false);
+
   const [todoId, setTodoId] = useState(null);
 
   const [todos, setTodos] = useState([])
 
+  if (!isReady) {
+    return (
+      <AppLoading
+        startAsync={loadApp}
+        onFinish={() => setIsReady(true)}
+        onError={console.warn}
+      />
+    )
+  }
 
   const addTodo = (title) => {
 
