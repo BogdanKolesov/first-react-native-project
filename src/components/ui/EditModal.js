@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Button, Modal, Alert } from 'react-native';
+import { AppButton } from '.';
 import THEME from '../../theme';
 
 const styles = StyleSheet.create({
@@ -38,8 +39,12 @@ const EditModal = ({ visible, onCancel, value, onSave }) => {
             <View style={styles.wrap}>
                 <TextInput value={title} onChangeText={setTitle} placeholder='Введите название' autoCapitalize='none' maxLength={64} autoCorrect={false} style={styles.input} />
                 <View style={styles.buttons}>
-                    <Button title='Отменить' onPress={onCancel} color={THEME.DANGER_COLOR} />
-                    <Button title='Сохранить' onPress={saveHandler} />
+                    <AppButton onPress={onCancel} color={THEME.DANGER_COLOR} >
+                        Отменить
+                    </AppButton>
+                    <AppButton onPress={saveHandler} >
+                        Сохранить
+                    </AppButton>
                 </View>
             </View>
         </Modal>
