@@ -3,6 +3,8 @@ import { View, StyleSheet, TextInput, Button, Modal, Alert } from 'react-native'
 import { AppButton } from '.';
 import THEME from '../../theme';
 
+
+//TODO: Зачеркивание текста
 const styles = StyleSheet.create({
     wrap: {
         flex: 1,
