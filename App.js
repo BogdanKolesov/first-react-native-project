@@ -6,6 +6,7 @@ import AppLoading from 'expo-app-loading';
 import Navbar from './src/components/Navbar';
 import MainScreen from './src/components/Views/MainScreen';
 import TodoScreen from './src/components/Views/TodoScreen';
+import THEME from './src/theme';
 
 
 async function loadApp() {
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: '8%',
+    paddingHorizontal: THEME.PADDING_HORIZONTAL
   },
   list: {
     width: '100%',
