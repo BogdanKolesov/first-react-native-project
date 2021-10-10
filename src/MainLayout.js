@@ -19,55 +19,55 @@ const styles = StyleSheet.create({
 });
 
 const MainLayout = () => {
-    const todosContext = useContext(TodoContext)
+    const { todos, addTodo, removeTodo, updateTodo } = useContext(TodoContext)
 
     const [todoId, setTodoId] = useState(null);
-    const [todos, setTodos] = useState([])
+    // const [todos, setTodos] = useState([])
 
-    const addTodo = title => {
-        setTodos(prev => [{
-            id: Date.now().toString(),
-            title
-        },
-        ...prev
-        ])
-    }
+    // const addTodo = title => {
+    //     setTodos(prev => [{
+    //         id: Date.now().toString(),
+    //         title
+    //     },
+    //     ...prev
+    //     ])
+    // }
 
-    const updateTodo = (id, title) => {
-        setTodos(old => old.map(todo => {
-            if (todo.id === id) {
-                todo.title = title
-            }
-            return todo
-        }))
-    }
+    // const updateTodo = (id, title) => {
+    //     setTodos(old => old.map(todo => {
+    //         if (todo.id === id) {
+    //             todo.title = title
+    //         }
+    //         return todo
+    //     }))
+    // }
 
-    const removeTodo = id => {
-        const todo = todos.find(t => t.id === id)
+    // const removeTodo = id => {
+    //     const todo = todos.find(t => t.id === id)
 
-        Alert.alert(
-            'Удаление элемента',
-            `Вы уверены, что хотите удалить "${todo.title}"?`,
-            [
-                {
-                    text: 'Отмена',
-                    style: 'clancel'
-                },
-                {
-                    text: 'Удалить',
-                    style: 'negative',
-                    onPress: () => {
-                        setTodoId(null)
-                        setTodos(prev => prev.filter(todo => todo.id !== id))
-                    }
-                }
-            ],
-            { cancelable: false }
-        )
-    }
+    //     Alert.alert(
+    //         'Удаление элемента',
+    //         `Вы уверены, что хотите удалить "${todo.title}"?`,
+    //         [
+    //             {
+    //                 text: 'Отмена',
+    //                 style: 'clancel'
+    //             },
+    //             {
+    //                 text: 'Удалить',
+    //                 style: 'negative',
+    //                 onPress: () => {
+    //                     setTodoId(null)
+    //                     setTodos(prev => prev.filter(todo => todo.id !== id))
+    //                 }
+    //             }
+    //         ],
+    //         { cancelable: false }
+    //     )
+    // }
 
     let content = (
-        <MainScreen todos={todosContext.todos} addTodo={addTodo} removeTodo={removeTodo} openTodo={setTodoId} />
+        <MainScreen todos={todos} addTodo={addTodo} removeTodo={removeTodo} openTodo={setTodoId} />
     )
 
     if (todoId) {
