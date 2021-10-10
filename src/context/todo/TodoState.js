@@ -2,7 +2,7 @@ import React, { useReducer } from 'react'
 import { TodoContext } from './todoContext'
 import { todoReducer } from './todoReducer'
 
-export const TodoState = ({ children }) => {
+const TodoState = ({ children }) => {
 
     const initialState = {
         todos: [
@@ -20,3 +20,5 @@ export const TodoState = ({ children }) => {
         </TodoContext.Provider>
     )
 }
+
+export default TodoState
