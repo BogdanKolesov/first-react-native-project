@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { StyleSheet, View, FlatList, Image, Dimensions } from 'react-native';
+import { ScreenContext } from '../../../context/screen/screenContext';
+import { TodoContext } from '../../../context/todo/todoContext';
 import THEME from '../../../theme';
 import AddTodo from '../../AddTodo';
 import Todo from '../../Todo';
@@ -19,7 +21,9 @@ const styles = StyleSheet.create({
     }
 })
 
-const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
+const MainScreen = ({ openTodo }) => {
+    const { addTodo, todos, removeTodo } = useContext(TodoContext)
+    const { changeScreen } = useContext(ScreenContext)
     const [deviceWidth, setDeviceWidth] = useState(Dimensions.get('window').width - THEME.PADDING_HORIZONTAL * 2)
 
     useEffect(() => {
@@ -42,7 +46,7 @@ const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
                 data={todos}
                 scrollEnabled={true}
                 renderItem={({ item }) => (
-                    <Todo todo={item} onRemove={removeTodo} onOpen={openTodo} />
+                    <Todo todo={item} onRemove={removeTodo} onOpen={changeScreen} />
                 )}
             />
         </View>
