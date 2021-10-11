@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     }
 })
 
-const MainScreen = ({ openTodo }) => {
+const MainScreen = () => {
     const { addTodo, todos, removeTodo } = useContext(TodoContext)
     const { changeScreen } = useContext(ScreenContext)
     const [deviceWidth, setDeviceWidth] = useState(Dimensions.get('window').width - THEME.PADDING_HORIZONTAL * 2)
