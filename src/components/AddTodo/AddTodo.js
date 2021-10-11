@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     textInput: {
         width: '75%',
         borderStyle: 'solid',
-        borderWidth: 2,
+        borderBottomWidth: 2,
         borderColor: THEME.MAIN_COLOR,
         marginRight: 5,
         padding: 2
