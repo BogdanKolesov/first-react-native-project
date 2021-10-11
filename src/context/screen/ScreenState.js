@@ -3,7 +3,7 @@ import { CHANGE_SCREEN } from '../types';
 import { ScreenContext } from './screenContext'
 import { screenReducer } from './screenReducer'
 
-export const ScreenState = ({ children }) => {
+const ScreenState = ({ children }) => {
 
     const [state, dispatch] = useReducer(screenReducer, null)
 
@@ -15,3 +15,5 @@ export const ScreenState = ({ children }) => {
         {children}
     </ScreenContext.Provider>
 }
+
+export default ScreenState

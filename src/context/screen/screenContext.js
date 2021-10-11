@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const screenContext = createContext()
+export const ScreenContext = createContext()

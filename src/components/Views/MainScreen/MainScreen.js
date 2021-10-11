@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
 })
 
 const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
-    const [deviceWidth, setDeviceWidth] = useState(Dimensions.get('window').width - THEME.PADDING_HORIZONTAL * 2
-    )
+    const [deviceWidth, setDeviceWidth] = useState(Dimensions.get('window').width - THEME.PADDING_HORIZONTAL * 2)
 
     useEffect(() => {
         const update = () => {
