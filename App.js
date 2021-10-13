@@ -6,6 +6,7 @@ import TodoState from './src/context/todo/TodoState'
 import ScreenState from './src/context/screen/ScreenState'
 
 //ADD: Firebase
+//ADD: cursive
 
 async function loadApp() {
   await Font.loadAsync({
