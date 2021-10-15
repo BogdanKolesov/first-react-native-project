@@ -7,7 +7,6 @@ import ScreenState from './src/context/screen/ScreenState'
 
 //ADD: Firebase
 //ADD: cursive
-//ADD: auth
 
 async function loadApp() {
   await Font.loadAsync({
