@@ -1,7 +1,7 @@
 import React, { useReducer, useContext } from 'react'
 import { Alert } from 'react-native'
 import { ScreenContext } from '../screen/screenContext'
-import { ADD_TODO, CLEAR_ERROR, HIDE_LOADER, REMOVE_TODO, SHOW_ERROR, SHOW_LOADER, UPDATE_TODO } from '../types'
+import { ADD_TODO, CLEAR_ERROR, FETCH_TODOS, HIDE_LOADER, REMOVE_TODO, SHOW_ERROR, SHOW_LOADER, UPDATE_TODO } from '../types'
 import { TodoContext } from './todoContext'
 import { todoReducer } from './todoReducer'
 
@@ -50,6 +50,18 @@ const TodoState = ({ children }) => {
             { cancelable: false }
         )
     }
+
+    const fetchTodos = async () => {
+        const response = await fetch('https://react-native-todo-app-967bf-default-rtdb.europe-west1.firebasedatabase.app/todos.json', {
+            method: 'GET', //По умолчанию - GET, можно не прописывать
+            headers: { 'Content-Type': 'application/json' }
+        })
+        const data = await response.json()
+        console.log('Fetch data', data)
+        const todos = Object.keys(data).map(key => ({ ...data[key], id: key }))
+        dispatch({ type: FETCH_TODOS, todos })
+    }
+
     const updateTodo = (id, title) => dispatch({ type: UPDATE_TODO, id, title })
 
     const showLoader = () => dispatch({ type: SHOW_LOADER })
@@ -61,9 +73,12 @@ const TodoState = ({ children }) => {
     return (
         <TodoContext.Provider value={{
             todos: state.todos,
+            loading: state.loading,
+            error: state.error,
             addTodo,
             removeTodo,
-            updateTodo
+            updateTodo,
+            fetchTodos
         }}>
             {children}
         </TodoContext.Provider>
