@@ -5,6 +5,7 @@ import { TodoContext } from '../../../context/todo/todoContext';
 import THEME from '../../../theme';
 import AddTodo from '../../AddTodo';
 import Todo from '../../Todo';
+import { AppLoader } from '../../ui';
 
 
 const styles = StyleSheet.create({
@@ -43,6 +44,10 @@ const MainScreen = () => {
             Dimensions.removeEventListener('change', update)
         }
     });
+
+    if (loading) {
+        return <AppLoader />
+    }
 
     let content = (
         <View style={{ width: deviceWidth }}>

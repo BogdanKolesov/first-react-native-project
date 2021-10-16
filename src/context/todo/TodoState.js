@@ -52,14 +52,17 @@ const TodoState = ({ children }) => {
     }
 
     const fetchTodos = async () => {
+        showLoader()
         const response = await fetch('https://react-native-todo-app-967bf-default-rtdb.europe-west1.firebasedatabase.app/todos.json', {
             method: 'GET', //По умолчанию - GET, можно не прописывать
             headers: { 'Content-Type': 'application/json' }
         })
         const data = await response.json()
-        console.log('Fetch data', data)
+        // console.log('Fetch data', data)
         const todos = Object.keys(data).map(key => ({ ...data[key], id: key }))
         dispatch({ type: FETCH_TODOS, todos })
+        // setTimeout(() => dispatch({ type: UPDATE_TODO, todos }), 5000)
+        hideLoader()
     }
 
     const updateTodo = (id, title) => dispatch({ type: UPDATE_TODO, id, title })

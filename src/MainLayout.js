@@ -10,18 +10,23 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: THEME.PADDING_HORIZONTAL
+        paddingHorizontal: THEME.PADDING_HORIZONTAL,
+        flex: 0.8,
+        marginTop: 35
     },
     list: {
         width: '100%',
     },
+    wrapper: {
+        flex: 1
+    }
 });
 
 const MainLayout = () => {
     const { todoId } = useContext(ScreenContext)
 
     return (
-        <View >
+        <View style={styles.wrapper} >
             <Navbar title="Kolesov's to-do test App" />
             <View style={styles.container}>
                 {todoId ? <TodoScreen /> : <MainScreen />}
