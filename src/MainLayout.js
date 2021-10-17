@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: THEME.PADDING_HORIZONTAL,
         flex: 0.8,
-        marginTop: 35
+        marginTop: 20
     },
     list: {
         width: '100%',

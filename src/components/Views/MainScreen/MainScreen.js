@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
     error: {
         fontSize: 20,
         color: THEME.DANGER_COLOR
+    },
+    main: {
+        flex: 1
     }
 })
 
@@ -91,9 +94,8 @@ const MainScreen = () => {
         )
     }
     return (
-        <View>
+        <View style={styles.main}>
             <AddTodo onSubmit={addTodo} />
-
             {content}
         </View>
     );

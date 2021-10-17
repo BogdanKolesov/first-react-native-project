@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 6,
-        marginBottom: 10
+        // marginBottom: 10
     },
     button: {
 
