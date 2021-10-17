@@ -5,7 +5,7 @@ import { TodoContext } from '../../../context/todo/todoContext';
 import THEME from '../../../theme';
 import AddTodo from '../../AddTodo';
 import Todo from '../../Todo';
-import { AppLoader } from '../../ui';
+import { AppLoader, AppText, AppButton } from '../../ui';
 
 
 const styles = StyleSheet.create({
@@ -19,6 +19,15 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         resizeMode: 'contain'
+    },
+    center: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    error: {
+        fontSize: 20,
+        color: THEME.DANGER_COLOR
     }
 })
 
@@ -47,6 +56,17 @@ const MainScreen = () => {
 
     if (loading) {
         return <AppLoader />
+    }
+
+    if (error) {
+        return <View style={styles.center}>
+            <AppText style={styles.error}>
+                {error}
+            </AppText>
+            <AppButton onPress={loadTodos}>
+                Повторить
+            </AppButton>
+        </View>
     }
 
     let content = (
