@@ -1,1 +1,1 @@
-# React Native to-do app
+# React Native to-do app.
